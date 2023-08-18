@@ -275,6 +275,7 @@ export async function getServerSideProps({ query }) {
 
   await db.connect();
   const categories = await Product.find().distinct('category');
+  console.log(categories)
   const brands = await Product.find().distinct('brand');
   const productDocs = await Product.find(
     {

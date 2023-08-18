@@ -95,7 +95,7 @@ export default function Layout({ title, children }) {
                     <UserIcon className='w-6 h-6'>
                     
                     </UserIcon>
-                    {session.user.name}
+                   
                     
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white  shadow-lg ">

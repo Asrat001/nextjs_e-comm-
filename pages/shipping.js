@@ -51,7 +51,8 @@ export default function ShippingScreen() {
 
   return (
     <Layout title="Shipping Address">
-      <CheckoutWizard activeStep={1} />
+  <div className=' container m-auto mt-10'>
+  <CheckoutWizard activeStep={1} />
       <form
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
@@ -128,6 +129,7 @@ export default function ShippingScreen() {
           <button className="primary-button">Next</button>
         </div>
       </form>
+  </div>
     </Layout>
   );
 }

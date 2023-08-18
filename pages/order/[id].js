@@ -170,7 +170,8 @@ function OrderScreen() {
 
   return (
     <Layout title={`Order ${orderId}`}>
-      <h1 className="mb-4 text-xl">{`Order ${orderId}`}</h1>
+   <div className=' container m-auto mt-8'>
+   <h1 className="mb-4 text-xl">{`Order ${orderId}`}</h1>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
@@ -305,6 +306,7 @@ function OrderScreen() {
           </div>
         </div>
       )}
+   </div>
     </Layout>
   );
 }

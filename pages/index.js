@@ -11,7 +11,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Link from 'next/link';
 import CatagoryItem from '../components/CatagoryItem';
 
-export default function Home({ products, featuredProducts }) {
+export default function Home({ products, featuredProducts ,Catagories}) {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
 
@@ -58,7 +58,7 @@ export default function Home({ products, featuredProducts }) {
       </div>
       <h2 className=" text-[30px] font-semibold my-8 "> Featured catagories</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
-        {products.map((product) => (
+        {Catagories.map((product) => (
           <CatagoryItem
             product={product}
             key={product.slug}
@@ -76,11 +76,14 @@ export async function getServerSideProps() {
   await db.connect();
   const products = await Product.find().lean();
   const featuredProducts = await Product.find({ isFeatured: true }).lean();
+  const Catagories = await Product.find({}, ['image']).distinct('category')
+  console.log(featuredProducts.map(db.convertDocToObj))
  
   return {
     props: {
       featuredProducts: featuredProducts.map(db.convertDocToObj),
       products: products.map(db.convertDocToObj),
+      Catagories
     },
   };
 }

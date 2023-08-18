@@ -29,6 +29,7 @@ function CartScreen() {
   };
   return (
     <Layout title="Shopping Cart">
+      <div className=' container m-auto'>
       <h1 className="mb-4 text-xl">Shopping Cart</h1>
       {cartItems.length === 0 ? (
         <div>
@@ -112,6 +113,8 @@ function CartScreen() {
           </div>
         </div>
       )}
+      </div>
+  
     </Layout>
   );
 }

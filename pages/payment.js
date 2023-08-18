@@ -40,10 +40,11 @@ export default function PaymentScreen() {
 
   return (
     <Layout title="Payment Method">
-      <CheckoutWizard activeStep={2} />
+     <div className=' container m-auto'>
+     <CheckoutWizard activeStep={2} />
       <form className="mx-auto max-w-screen-md" onSubmit={submitHandler}>
         <h1 className="mb-4 text-xl">Payment Method</h1>
-        {['PayPal', 'Stripe', 'CashOnDelivery'].map((payment) => (
+        {['PayPal', 'Chapa', 'CashOnDelivery'].map((payment) => (
           <div key={payment} className="mb-4">
             <input
               name="paymentMethod"
@@ -70,6 +71,7 @@ export default function PaymentScreen() {
           <button className="primary-button">Next</button>
         </div>
       </form>
+     </div>
     </Layout>
   );
 }
