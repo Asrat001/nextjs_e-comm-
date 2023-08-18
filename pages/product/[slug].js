@@ -32,16 +32,17 @@ export default function ProductScreen(props) {
 
   return (
     <Layout title={product.name}>
-      <div className="py-2">
-        <Link href="/">back to products</Link>
+      <div className="px-4 py-2 my-4 ml-4 bg-yellow-400 rounded-lg border-[1px] border-white    w-fit ">
+        <Link href="/" className=' text-gray-900/50 font-semibold'>back to products</Link>
       </div>
-      <div className="grid md:grid-cols-4 md:gap-3">
+      <div className="grid md:grid-cols-4 md:gap-3 container m-auto">
         <div className="md:col-span-2">
           <Image
             src={product.image}
             alt={product.name}
             width={640}
             height={640}
+            className=' rounded-xl'
             sizes="100vw"
             style={{
               width: '100%',

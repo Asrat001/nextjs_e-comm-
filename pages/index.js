@@ -53,7 +53,8 @@ export default function Home({ products, featuredProducts }) {
       </div>
       <div className='w-full mt-10 h-[200px] rounded-lg border-[1px] border-yellow-400 shadow-lg flex flex-col justify-center items-center '>
         <p className='text-[40px] font-semibold'>Do you want to sell your products on our website ?</p>
-        <button className=' bg-yellow-400 py-2 border-[1px] border-white font-medium px-3 text-white rounded-lg'>Create Store </button>
+        <Link  href='/Store' className=' bg-yellow-400 py-2 border-[1px] border-white font-medium px-3 text-white rounded-lg'>Create Store </Link>
+        
       </div>
       <h2 className=" text-[30px] font-semibold my-8 "> Featured catagories</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
