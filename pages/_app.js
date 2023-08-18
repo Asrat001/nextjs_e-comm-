@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <PayPalScriptProvider deferLoading={true}>
           {Component.auth ? (
             <Auth adminOnly={Component.auth.adminOnly}>
-           <div className=' bg-slate-700'>
+           <div className=''>
            <Component  {...pageProps}  />
            </div>
             </Auth>

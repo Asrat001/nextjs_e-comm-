@@ -10,6 +10,10 @@ import { Store } from '../utils/Store';
 import DropdownLink from './DropdownLink';
 import { useRouter } from 'next/router';
 import SearchIcon from '@heroicons/react/24/outline/MagnifyingGlassIcon';
+import Shoppingcart from '@heroicons/react/24/outline/ShoppingCartIcon';
+import User   from "@heroicons/react/24/outline/UserIcon"
+import UserIcon from '@heroicons/react/24/outline/UserIcon';
+
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
@@ -47,33 +51,37 @@ export default function Layout({ title, children }) {
 
       <div className="flex min-h-screen flex-col justify-between  ">
         <header>
-          <nav className="flex h-20 items-center px-4 justify-between shadow-m shadow-red-50 shadow-xl">
-            <Link href="/" className="text-lg font-bold ">
+          <nav className="flex h-20 items-center px-4 justify-between shadow-m border-b-[2px] border-yellow-400/40 shadow-red-50 shadow-xl">
+            <Link href="/" className="text-lg font-bold   text-gray-900">
               shero-meda
             </Link>
             <form
               onSubmit={submitHandler}
               className="mx-auto  hidden  justify-center md:flex"
             >
-              <input
-                onChange={(e) => setQuery(e.target.value)}
-                type="text"
-                className="rounded-tr-none rounded-br-none p-1 text-sm   focus:ring-0"
-                placeholder="Search products"
-              />
+              <div className=' rounded-xl flex justify-center items-center p-2 border-[1px]  border-yellow-400'>
               <button
-                className="rounded rounded-tl-none rounded-bl-none bg-amber-300 p-1 text-sm dark:text-black"
+                className="rounded rounded-tl-none rounded-bl-none  p-1 text-sm dark:text-black"
                 type="submit"
                 id="button-addon2"
               >
                 <SearchIcon className="h-5 w-5"></SearchIcon>
               </button>
+              <input
+                onChange={(e) => setQuery(e.target.value)}
+                type="text"
+                className=" p-1 text-sm  border-none  focus:ring-0"
+                placeholder="Search products"
+              />
+           
+              </div>
+        
             </form>
-            <div className="flex items-center z-10">
-              <Link href="/cart" className="p-2">
-                Cart
+            <div className="flex items-center z-10 gap-x-2 justify-center">
+              <Link href="/cart" className="p-2 border-[1px] flex gap-x-2 border-yellow-400 rounded-xl">
+                <Shoppingcart className='w-4 h-4'/>
                 {cartItemsCount > 0 && (
-                  <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
+                  <span className="ml-1 rounded-full bg-yellow-500 w-auto h-auto px-2 py-1 text-xs font-bold text-white">
                     {cartItemsCount}
                   </span>
                 )}
@@ -84,7 +92,11 @@ export default function Layout({ title, children }) {
               ) : session?.user ? (
                 <Menu as="div" className="relative inline-block">
                   <Menu.Button className="text-blue-600">
+                    <UserIcon className='w-6 h-6'>
+                    
+                    </UserIcon>
                     {session.user.name}
+                    
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white  shadow-lg ">
                     <Menu.Item>
@@ -112,9 +124,10 @@ export default function Layout({ title, children }) {
                     )}
                     <Menu.Item>
                       <a
-                        className="dropdown-link"
+                        className="dropdown-link "
                         href="#"
                         onClick={logoutClickHandler}
+
                       >
                         Logout
                       </a>
@@ -122,7 +135,7 @@ export default function Layout({ title, children }) {
                   </Menu.Items>
                 </Menu>
               ) : (
-                <Link href="/login" className="p-2">
+                <Link href="/login" className="p-1 px-2 bg-yellow-400 rounded-lg border-[4px] border-white text-white ">
                   Login
                 </Link>
               )}
@@ -130,9 +143,78 @@ export default function Layout({ title, children }) {
           </nav>
         </header>
         <main className="  ">{children}</main>
-        <footer className="flex h-10 shadow-xl justify-center items-center ">
-          <p>Copyright {}</p>
+        <footer className=" mt-10 px-4 h-auto pt-6 shadow-xl    border-[2px] border-yellow-400/70 ">
+          <div className='flex justify-around'>
+          <div className='flex flex-col justify-between'>
+          <p className=' text-gray-900 font-bold text-[25px]'>Shero-Meda</p>
+         
+          </div>
+          <div className='flex flex-col gap-y-4 '>
+            <p className='text-gray-900 font-bold text-[18px]'>Creadits</p>
+            <ul className='flex flex-col gap-y-4'>
+              <li>
+                Dawit A 
+              </li>
+              <li>
+              Youtube
+              </li>
+              <li>
+                Asrat
+              </li>
+            </ul>
+
+          </div>
+          <div className='flex flex-col  gap-y-4 '>
+            <p className='text-gray-900 font-bold text-[18px]'>Socials</p>
+            <ul className='flex flex-col gap-y-4'>
+              <li>
+                Linkdin
+              </li>
+              <li>
+               Github
+              </li>
+              <li>
+               Twitter
+              </li>
+              <li>
+               Instagram
+              </li>
+            </ul>
+          </div>
+          <div className='flex flex-col  gap-y-4 '>
+            <p className='text-gray-900 font-bold text-[18px]'>help</p>
+            <ul className='flex flex-col gap-y-4'>
+              <li>
+                buy me coffee
+              </li>
+              <li>
+                Chapa
+              </li>
+              <li>
+                Pattron
+              </li>
+            </ul>
+          </div>
+          <div className='flex flex-col   gap-y-4'>
+            <p className='text-gray-900 font-bold text-[18px]'>Other Projects</p>
+            <ul className='flex flex-col gap-y-4'>
+              <li>
+                React Native E-commerce app
+              </li>
+              <li>
+                Skin Cancer Classifyer app
+              </li>
+              <li>
+                More ..
+              </li>
+            </ul>
+          </div>
+          
+          </div>
+       
+          <p className='ml-[80px]'>built By <strong>Asrat</strong></p>
         </footer>
+       
       </div>
     </>
   );
